@@ -4,7 +4,8 @@
   "description": "ui-automation-cypress-9.6.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open"
+    "test": "npx cypress open",
+    "pipeline": "npx cypress run --spec 'cypress/integration/project-specs/before-login/*.spec.js'"
   },
   "repository": {
     "type": "git",

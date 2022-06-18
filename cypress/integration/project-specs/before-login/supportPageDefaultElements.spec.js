@@ -9,12 +9,16 @@ describe('Home Page default (before log in) elements - main test suite', () => {
     cy.visit('/i/support');
   });
   describe('PRECONDITIONS: load industries Page', () => {
-    it('Checking main NAVBAR (with a local helper)', () => {
+
+    it.skip('Checking main NAVBAR (with a local helper)', () => {
+ main
       localHelper.checkNavbarDefault();
     });
   });
 
+ home-page
   describe.skip('Main Page Elements (2): picture and form', () => {
+
     it('Checking main DIV', () => {
       industriesPageDefaultPOM
         .mainDiv()
@@ -31,7 +35,9 @@ describe('Home Page default (before log in) elements - main test suite', () => {
         .should('have.attr', 'alt', 'Kompot Support')
         .should('have.attr', 'title', 'Kompot');
     });
+ home-page
     describe.skip('Checking Form', () => {
+
       it('FORM TAG', () => {
         industriesPageDefaultPOM
           .mainDiv()

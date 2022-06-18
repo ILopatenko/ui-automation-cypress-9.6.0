@@ -15,12 +15,16 @@ describe('Home Page default (before log in) elements - main test suite', () => {
   });
 
   describe('Main Page Elements (3): header, paragraph, table', () => {
+ home-page
     it.skip('Checking Header', () => {
+
       industriesPageDefaultPOM
         .mainDiv()
         .should('be.visible')
         .children()
+ home-page
         .should('have.length', 9)
+
         .first('h1')
         .should('be.visible')
         .should('have.text', 'Industries')
@@ -53,7 +57,9 @@ describe('Home Page default (before log in) elements - main test suite', () => {
         industriesDefaultPageElements
       );
     });
+ home-page
     it.skip('Checking Table', () => {
+
       const testData = [
         [
           'Locksmith',

@@ -13,7 +13,7 @@ describe('Home Page default (before log in) elements - main test suite', () => {
     });
   });
 
-  describe('Main Page Blocks (5): "Perfect CRM solution", "Our Goal", "Why Kompot", "Kompot Features", "Pricing"', () => {
+  describe('Main Page Blocks (5): "Perfect CRM solution", "Our Goal", "Why Kompot", "Kompot Features", "Pricing"!', () => {
     it('Checking that Home Page has 5 main blocks (DIVs)', () => {
       homePageDefaultPOM
         .mainBlocksRootDiv()

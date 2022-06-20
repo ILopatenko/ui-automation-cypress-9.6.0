@@ -9,14 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ILopatenko/zxczxc.git"
+    "url": "git+git remote add origin https://github.com/ILopatenko/asd.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ILopatenko/zxczxc.git"
-  },
-  "homepage": "https://github.com/ILopatenko/zxczxc.git#readme",
+  "homepage": "http://git remote add origin https://github.com/ILopatenko/asd.git",
   "dependencies": {
     "cypress": "^9.6.0",
     "cypress-xpath": "^1.6.2"

@@ -1,26 +1,22 @@
 {
-  "name": "ui-automation-cypress-9.6.0",
+  "name": "someone-repo",
   "version": "1.0.0",
   "description": "ui-automation-cypress-9.6.0",
   "main": "index.js",
   "scripts": {
-
     "test": "npx cypress open",
     "pipeline": "npx cypress run --spec 'cypress/integration/project-specs/before-login/*.spec.js'"
-
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ILopatenko/ui-automation-cypress-9.6.0.git"
+    "url": "git+git remote add origin https://github.com/ILopatenko/asd.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ILopatenko/ui-automation-cypress-9.6.0/issues"
-  },
-  "homepage": "https://github.com/ILopatenko/ui-automation-cypress-9.6.0#readme",
+  "homepage": "http://git remote add origin https://github.com/ILopatenko/asd.git",
   "dependencies": {
     "cypress": "^9.6.0",
     "cypress-xpath": "^1.6.2"
-  }
+  },
+  "devDependencies": {}
 }

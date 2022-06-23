@@ -8,7 +8,7 @@ describe('Home Page default (before log in) elements - main test suite', () => {
     it('Load Home Page', () => {
       cy.visit('/');
     });
-    it.skip('Checking main NAVBAR (with a local helper)', () => {
+    it('Checking main NAVBAR (with a local helper)', () => {
       localHelper.checkNavbarDefault();
     });
   });

@@ -1,4 +1,4 @@
-export default class homePageDefaultPOM {
+export default class HomePageDefaultPOM {
   //NAVBAR
   NavbarMainDiv = () => this.topMenuMainDiv().parent();
   //LOGO

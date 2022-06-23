@@ -41,7 +41,7 @@ describe('Registration Page - main test suite', () => {
       });
       //TO DO: Check header - registrationPageDefaultPOM.header().should('be.visible) returns error that element is undefined
     });
-    describe('EMAIL input field', () => {
+    describe.skip('EMAIL input field', () => {
       it('Checking that EMAIL input main DIV exists on the page', () => {
         registrationPageDefaultPOM
           .mainForm()
@@ -117,7 +117,7 @@ describe('Registration Page - main test suite', () => {
           .should('have.value', testEmail);
       });
     });
-    describe('PASSWORD input field', () => {
+    describe.skip('PASSWORD input field', () => {
       it('Checking that PASSWORD input main DIV exists on the page', () => {
         registrationPageDefaultPOM
           .mainForm()
@@ -191,6 +191,126 @@ describe('Registration Page - main test suite', () => {
           .invoke('val', testPassword)
           .wait(500)
           .should('have.value', testPassword);
+      });
+    });
+    describe('SUBMIT button', () => {
+      it('Checking that SUBMIT button exists on the page', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .children('button')
+          .should('be.visible');
+      });
+      it('Checking that SUBMIT button has type="submit" and text "Create your account"', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .children('button')
+          .should('have.attr', 'type', 'submit')
+          .should('have.text', 'Create your account');
+      });
+    });
+    describe('"Log in" link', () => {
+      it('Checking that "Log in" element exists on the page', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .next('div')
+          .children('div')
+          .first();
+      });
+      it('Checking that "Log in" element is a link', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .next('div')
+          .children('div')
+          .first()
+          .children('a')
+          .should('be.visible');
+      });
+      it('Checking that "Log in" link has href="/user/login" and text "Log in"', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .next('div')
+          .children('div')
+          .first()
+          .children('a')
+          .should('have.attr', 'href', '/user/login')
+          .should('have.text', 'Log in');
+      });
+      it('Checking that "Log in" link clickable and after click redirects user to Login Page page', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .next('div')
+          .children('div')
+          .first()
+          .children('a')
+          .click()
+          .location('pathname')
+          .should('not.eq', '/user/register')
+          .should('eq', '/user/login')
+          .go('back');
+      });
+    });
+    describe('"Forgot password" link', () => {
+      it('Checking that "Forgot password" element exists on the page', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .next('div')
+          .children('div')
+          .last();
+      });
+      it('Checking that "Forgot password" element is a link', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .next('div')
+          .children('div')
+          .last()
+          .children('a')
+          .should('be.visible');
+      });
+      it('Checking that "Forgot password" link has href="/user/password/reset/request" and text "Forgot password"', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .next('div')
+          .children('div')
+          .last()
+          .children('a')
+          .should('have.attr', 'href', '/user/password/reset/request')
+          .should('have.text', 'Forgot password');
+      });
+      it('Checking that "Forgot password" link clickable and after click redirects user to Reset Password page', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .next('div')
+          .children('div')
+          .last()
+          .children('a')
+          .click()
+          .location('pathname')
+          .should('not.eq', '/user/register')
+          .should('eq', '/user/password/reset/request')
+          .go('back');
+      });
+    });
+    describe('"OR" separator', () => {
+      it('Checking that "OR" separator exists on the page', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .siblings('div')
+          .eq(1)
+          .should('be.visible');
+      });
+      it('Checking that "OR" separator the role="separator"', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .siblings('div')
+          .eq(1)
+          .should('have.attr', 'role', 'separator');
+      });
+      it('Checking that "OR" separator has text "OR"', () => {
+        registrationPageDefaultPOM
+          .mainForm()
+          .siblings('div')
+          .eq(1)
+          .should('have.text', 'OR');
       });
     });
   });

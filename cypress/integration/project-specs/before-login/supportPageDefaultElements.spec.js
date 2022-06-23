@@ -1,39 +1,40 @@
-import IndustriesPageDefaultPOM from '../../../support/page-objects/before-login-poms/industriesPageDefaultPOM';
+import SupportPageDefaultPOM from '../../../support/page-objects/before-login-poms/supportPageDefaultPOM';
 import LocalHelper from '../../../support/page-objects/localHelper';
 
-const industriesPageDefaultPOM = new IndustriesPageDefaultPOM();
+const supportPageDefaultPOM = new SupportPageDefaultPOM();
 const localHelper = new LocalHelper();
 
 describe('Home Page default (before log in) elements - main test suite', () => {
   beforeEach('Load Industries Page', () => {
     cy.visit('/i/support');
   });
-  describe('PRECONDITIONS: load industries Page', () => {
-    it.skip('Checking main NAVBAR (with a local helper)', () => {
+  describe.skip('PRECONDITIONS: load industries Page', () => {
+    it('Checking main NAVBAR (with a local helper)', () => {
       localHelper.checkNavbarDefault();
     });
   });
 
-  describe.skip('Main Page Elements (2): picture and form', () => {
+  describe('Main Page Elements (2): picture and form', () => {
     it('Checking main DIV', () => {
-      industriesPageDefaultPOM
+      supportPageDefaultPOM
         .mainDiv()
         .should('be.visible')
         .children()
         .should('have.length', 2);
     });
     it('Checking picture', () => {
-      industriesPageDefaultPOM
+      supportPageDefaultPOM
         .mainDiv()
         .children()
         .first()
+        .children()
         .should('be.visible')
         .should('have.attr', 'alt', 'Kompot Support')
         .should('have.attr', 'title', 'Kompot');
     });
-    describe.skip('Checking Form', () => {
+    describe('Checking Form', () => {
       it('FORM TAG', () => {
-        industriesPageDefaultPOM
+        supportPageDefaultPOM
           .mainDiv()
           .children()
           .last()
@@ -49,15 +50,15 @@ describe('Home Page default (before log in) elements - main test suite', () => {
           'Potential User',
           'Other',
         ];
-        industriesPageDefaultPOM
+        supportPageDefaultPOM
           .userLabel()
           .should('be.visible')
           .should('have.text', 'I am a...');
 
-        industriesPageDefaultPOM.userDropMenu().click();
+        supportPageDefaultPOM.userDropMenu().click();
         cy.get(
           `div[title="${
-            userTypes[Math.floor(Math.random() * (userTypes.length + 1))]
+            userTypes[Math.floor(Math.random() * userTypes.length)]
           }"]`
         )
           .should('be.visible')
@@ -71,17 +72,23 @@ describe('Home Page default (before log in) elements - main test suite', () => {
           'Scheduling',
           'Other',
         ];
-        industriesPageDefaultPOM
+        supportPageDefaultPOM
           .topicLabel()
           .should('be.visible')
           .should('have.text', 'What can we help you with?');
 
-        industriesPageDefaultPOM.topicDropMenu().click();
-        cy.get(
+        supportPageDefaultPOM.topicDropMenu().click();
+        cy.get('div[role="listbox"]')
+          .eq(Math.floor(Math.random() * 3))
+          .children()
+          .eq(Math.floor(Math.random() * 3))
+          .click({ force: true });
+
+        /*   cy.get(
           `div[title="${
-            userTypes[Math.floor(Math.random() * (userTypes.length + 1))]
+            userTypes[Math.floor(Math.random() * userTypes.length)]
           }"]`
-        ).type({ downArrow });
+        ); */
       });
     });
   });

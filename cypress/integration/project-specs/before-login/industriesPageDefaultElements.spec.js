@@ -15,13 +15,14 @@ describe('Industries Page default (before log in) elements - main test suite', (
   });
 
   describe('Main Page Elements (3): header, paragraph, table', () => {
-    it.skip('Checking Header', () => {
+    it('Checking Header', () => {
       industriesPageDefaultPOM
         .mainDiv()
         .should('be.visible')
         .children()
         .should('have.length', 9)
-        .first('h1')
+        .parent()
+        .siblings('h1')
         .should('be.visible')
         .should('have.text', 'Industries')
         .next('p')
@@ -53,7 +54,7 @@ describe('Industries Page default (before log in) elements - main test suite', (
         industriesDefaultPageElements
       );
     });
-    it.skip('Checking Table', () => {
+    it('Checking Table', () => {
       const testData = [
         [
           'Locksmith',
@@ -94,13 +95,13 @@ describe('Industries Page default (before log in) elements - main test suite', (
       ];
 
       industriesPageDefaultPOM
-        .mainRow()
+        .mainDiv()
         .find('h4')
         .each((e, i) => {
           cy.wrap(e).should('have.text', `${testData[i][0]}`);
         });
       industriesPageDefaultPOM
-        .mainRow()
+        .mainDiv()
         .find('p')
         .each((e, i) => {
           expect(e[0].innerText).eq(`${testData[i][1]}`);

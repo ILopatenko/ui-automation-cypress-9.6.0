@@ -4,11 +4,11 @@ import LocalHelper from '../../../support/page-objects/localHelper';
 const supportPageDefaultPOM = new SupportPageDefaultPOM();
 const localHelper = new LocalHelper();
 
-describe('Home Page default (before log in) elements - main test suite', () => {
-  beforeEach('Load Industries Page', () => {
+describe('Support Page default (before log in) elements - main test suite', () => {
+  beforeEach('Load Support Page', () => {
     cy.visit('/i/support');
   });
-  describe.skip('PRECONDITIONS: load industries Page', () => {
+  describe('PRECONDITIONS: load Support Page', () => {
     it('Checking main NAVBAR (with a local helper)', () => {
       localHelper.checkNavbarDefault();
     });

@@ -3,7 +3,7 @@ import LocalHelper from '../../../support/page-objects/localHelper';
 const pricingPageDefaultPOM = new PricingPageDefaultPOM();
 const localHelper = new LocalHelper();
 
-describe('Home Page default (before log in) elements - main test suite', () => {
+describe('Pricing Page default (before log in) elements - main test suite', () => {
   describe('PRECONDITIONS: load Pricing Page', () => {
     it('Load Pricing Page', () => {
       cy.visit('/i/pricing');

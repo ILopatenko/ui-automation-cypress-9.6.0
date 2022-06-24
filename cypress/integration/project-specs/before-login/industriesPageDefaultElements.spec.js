@@ -4,7 +4,7 @@ import industries from '../../../support/page-objects/test-data/parse/before-log
 const industriesPageDefaultPOM = new IndustriesPageDefaultPOM();
 const localHelper = new LocalHelper();
 
-describe('Home Page default (before log in) elements - main test suite', () => {
+describe('Industries Page default (before log in) elements - main test suite', () => {
   beforeEach('Load Industries Page', () => {
     cy.visit('/i/industries');
   });

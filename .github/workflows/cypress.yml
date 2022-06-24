@@ -28,5 +28,5 @@ jobs:
         cache: 'npm'
     - name: Npm install
       run: npm i
-    - name: run pipeline
-      run: npm run pipeline
+    - name: Stage 1. Testing Base Pages (Home, Pricing, Industries, Support, Login and Register) that user can use before for exploring product and Registration/Login actions
+      run: npm run basePagesMainElementsBeforeLogin

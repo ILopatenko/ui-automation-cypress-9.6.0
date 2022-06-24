@@ -1,6 +1,5 @@
 import RegistrationPageDefaultPOM from '../../../support/page-objects/before-login-poms/registrationPageDefaultPOM';
-const registrationPageDefaultPOM =
-  new RegistrationPageDefaultPOM();
+const registrationPageDefaultPOM = new RegistrationPageDefaultPOM();
 
 describe('Registration Page - main test suite', () => {
   describe('PRECONDITIONS: load Registration Page', () => {
@@ -14,9 +13,7 @@ describe('Registration Page - main test suite', () => {
         registrationPageDefaultPOM.logoSpan();
       });
       it('Checking that span with id="logo" is visible', () => {
-        registrationPageDefaultPOM
-          .logoSpan()
-          .should('be.visible');
+        registrationPageDefaultPOM.logoSpan().should('be.visible');
       });
       it('Checking that span with id="logo" has text "Kompot"', () => {
         registrationPageDefaultPOM
@@ -42,7 +39,7 @@ describe('Registration Page - main test suite', () => {
     });
     describe('page HEADER "Start your free 14-day trial with Kompot"', () => {
       it('Checking that header exists on the page', () => {
-        registrationPageDefaultPOM.header();
+        cy.contains('h1', 'Start your free 14-day trial with Kompot');
       });
       //TO DO: Check header - registrationPageDefaultPOM.header().should('be.visible) returns error that element is undefined
     });
@@ -69,11 +66,7 @@ describe('Registration Page - main test suite', () => {
           .eq(0)
           .children('label')
           .should('have.attr', 'for', 'email')
-          .should(
-            'have.attr',
-            'id',
-            'email-label'
-          );
+          .should('have.attr', 'id', 'email-label');
       });
       it('Checking that EMAIL LABEL has text "Email" ', () => {
         registrationPageDefaultPOM
@@ -149,11 +142,7 @@ describe('Registration Page - main test suite', () => {
           .eq(1)
           .children('label')
           .should('have.attr', 'for', 'password')
-          .should(
-            'have.attr',
-            'id',
-            'password-label'
-          );
+          .should('have.attr', 'id', 'password-label');
       });
       it('Checking that PASSWORD LABEL has text "Password" ', () => {
         registrationPageDefaultPOM
@@ -218,10 +207,7 @@ describe('Registration Page - main test suite', () => {
           .mainForm()
           .children('button')
           .should('have.attr', 'type', 'submit')
-          .should(
-            'have.text',
-            'Create your account'
-          );
+          .should('have.text', 'Create your account');
       });
     });
     describe('"Log in" link', () => {
@@ -248,11 +234,7 @@ describe('Registration Page - main test suite', () => {
           .children('div')
           .first()
           .children('a')
-          .should(
-            'have.attr',
-            'href',
-            '/user/login'
-          )
+          .should('have.attr', 'href', '/user/login')
           .should('have.text', 'Log in');
       });
       it('Checking that "Log in" link clickable and after click redirects user to Login Page page', () => {
@@ -293,11 +275,7 @@ describe('Registration Page - main test suite', () => {
           .children('div')
           .last()
           .children('a')
-          .should(
-            'have.attr',
-            'href',
-            '/user/password/reset/request'
-          )
+          .should('have.attr', 'href', '/user/password/reset/request')
           .should('have.text', 'Forgot password');
       });
       it('Checking that "Forgot password" link clickable and after click redirects user to Reset Password page', () => {
@@ -310,10 +288,7 @@ describe('Registration Page - main test suite', () => {
           .click()
           .location('pathname')
           .should('not.eq', '/user/register')
-          .should(
-            'eq',
-            '/user/password/reset/request'
-          )
+          .should('eq', '/user/password/reset/request')
           .go('back');
       });
     });
@@ -330,11 +305,7 @@ describe('Registration Page - main test suite', () => {
           .mainForm()
           .siblings('div')
           .eq(1)
-          .should(
-            'have.attr',
-            'role',
-            'separator'
-          );
+          .should('have.attr', 'role', 'separator');
       });
       it('Checking that "OR" separator has text "OR"', () => {
         registrationPageDefaultPOM
@@ -370,10 +341,7 @@ describe('Registration Page - main test suite', () => {
           .children('span')
           .eq(1)
           .should('be.visible')
-          .should(
-            'have.text',
-            'Continue with Google'
-          );
+          .should('have.text', 'Continue with Google');
       });
     });
     describe('Terms block', () => {
@@ -397,16 +365,8 @@ describe('Registration Page - main test suite', () => {
           .mainForm()
           .siblings('h6')
           .children('a')
-          .should(
-            'have.attr',
-            'data-qa',
-            'termsBtn'
-          )
-          .should(
-            'have.attr',
-            'href',
-            '/user/register'
-          );
+          .should('have.attr', 'data-qa', 'termsBtn')
+          .should('have.attr', 'href', '/user/register');
       });
       it('Checking that a click on a link opens a modal', () => {
         registrationPageDefaultPOM
@@ -414,9 +374,7 @@ describe('Registration Page - main test suite', () => {
           .siblings('h6')
           .children('a')
           .click();
-        registrationPageDefaultPOM
-          .modalCloseButton()
-          .click();
+        registrationPageDefaultPOM.modalCloseButton().click();
       });
     });
     describe('Modal TERMS', () => {
@@ -438,10 +396,7 @@ describe('Registration Page - main test suite', () => {
           .children('div')
           .first()
           .should('be.visible')
-          .should(
-            'have.text',
-            'Terms and agreements'
-          );
+          .should('have.text', 'Terms and agreements');
       });
       it('Checking that modal has a a header "Terms of Service"', () => {
         registrationPageDefaultPOM
@@ -451,10 +406,7 @@ describe('Registration Page - main test suite', () => {
           .last()
           .children('h1')
           .should('be.visible')
-          .should(
-            'have.text',
-            'Terms of Service'
-          );
+          .should('have.text', 'Terms of Service');
       });
       it('Checking 1st paragraph', () => {
         registrationPageDefaultPOM
@@ -483,10 +435,7 @@ describe('Registration Page - main test suite', () => {
           .modalBlockWithData()
           .children('h2')
           .eq(0)
-          .should(
-            'have.text',
-            '1. Use of Our Service'
-          );
+          .should('have.text', '1. Use of Our Service');
       });
       it('Checking that chapter #1 has 4 sections', () => {
         registrationPageDefaultPOM
@@ -627,9 +576,7 @@ describe('Registration Page - main test suite', () => {
             'have.text',
             'In connection with your User Content, you affirm, represent and warrant the following:Your User Content and Kompot’s use thereof as contemplated by this Agreement and the Service will not violate any law or infringe any rights of any third party, including but not limited to any Intellectual Property Rights and privacy rights.Kompot may exercise the rights to your User Content granted under this Agreement without liability for payment of any guild fees, residuals, payments, fees, or royalties payable under any collective bargaining agreement or otherwise.To the best of your knowledge, all your User Content you provide to us is truthful and accurate. You have the written consent of each and every identifiable natural person in the User Content, if any, to use such person’s name or likeness in the manner contemplated by the Service and this Agreement, and each such person has released you from any liability that may arise in relation to such use. Kompot takes no responsibility and assumes no liability for any User Content that you or any other User or third party posts or sends over the Service. You shall be solely responsible for your User Content and the consequences of posting or publishing it, and you agree that we are only acting as a passive conduit for your online distribution and publication of your User Content. You understand and agree that you may be exposed to User Content that is inaccurate, objectionable, inappropriate for children, or otherwise unsuited to your purpose, and you agree that Kompot shall not be liable for any damages you allege to incur as a result of User Content.'
           );
-        registrationPageDefaultPOM
-          .modalCloseButton()
-          .click();
+        registrationPageDefaultPOM.modalCloseButton().click();
       });
     });
   });

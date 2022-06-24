@@ -60,7 +60,18 @@ describe('Registration Page. Smoke Test Positive - main test suite', () => {
       registrationPageDefaultPOM.submitButton().click().wait(2000);
     });
     it('Click LOGO', () => {
-      registrationPageDefaultPOM.logoSpan().click().wait(1000);
+
+      registrationPageDefaultPOM.logoSpan().click();
+    });
+    it('Checking that user was redirected to the Home Page for logged in users', () => {
+      cy.get('div#root>main>div')
+        .children('div')
+        .eq(0)
+        .children('h3')
+        .should('have.text', 'Business owner tasks')
+        .location('pathname')
+        .should('eq', '/');
+
     });
   });
 });

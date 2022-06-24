@@ -183,7 +183,6 @@ export default class LocalHelper {
 
   //
   //
-  //
   //REGISTRATION
   //
   getRandomElementFromGivenSetDefault1 = (set, length = 1) => {
@@ -240,7 +239,9 @@ export default class LocalHelper {
       );
       numbers += `${Math.floor(Math.random() * 10)}`;
     }
-    const email = `${firstName.toLowerCase()}_${capitalLetters}_${symbols}_${numbers}_${lastName.toLowerCase()}@${emailDomain}.${domain}`;
+
+    const email = `${firstName.toLowerCase()}_${symbols}_${numbers}_${lastName.toLowerCase()}@${emailDomain}.${domain}`;
+
     return email;
   };
 

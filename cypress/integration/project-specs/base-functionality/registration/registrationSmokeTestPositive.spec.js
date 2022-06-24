@@ -60,6 +60,7 @@ describe('Registration Page. Smoke Test Positive - main test suite', () => {
       registrationPageDefaultPOM.submitButton().click().wait(2000);
     });
     it('Click LOGO', () => {
+
       registrationPageDefaultPOM.logoSpan().click();
     });
     it('Checking that user was redirected to the Home Page for logged in users', () => {
@@ -70,6 +71,7 @@ describe('Registration Page. Smoke Test Positive - main test suite', () => {
         .should('have.text', 'Business owner tasks')
         .location('pathname')
         .should('eq', '/');
+
     });
   });
 });

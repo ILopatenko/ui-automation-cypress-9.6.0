@@ -6,7 +6,10 @@
   "scripts": {
     "test": "npx cypress open",
     "pipeline": "npx cypress run --spec 'cypress/integration/project-specs/before-login/*.spec.js'",
-    "basePagesMainElementsBeforeLogin": "npx cypress run --spec 'cypress/integration/project-specs/before-login/*.spec.js'"
+    "basePagesMainElementsBeforeLogin": "npx cypress run --spec 'cypress/integration/project-specs/before-login/*.spec.js'",
+    "mainPageAfter":"npx cypress run --spec 'cypress/integration/project-specs/after-login/homePageAfter.spec.js'",
+    "clientPage":"npx cypress run --spec 'cypress/integration/project-specs/after-login/client/clientPage.spec.js'",
+    "pagesAfter":"npm run mainPageAfter && npm run clientPage"
   },
   "repository": {
     "type": "git",

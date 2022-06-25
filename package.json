@@ -6,15 +6,15 @@
   "scripts": {
     "test": "npx cypress open",
     "pipeline": "npx cypress run --spec 'cypress/integration/project-specs/before-login/*.spec.js'",
-    "basePagesMainElementsBeforeLogin": "npx cypress run --spec 'cypress/integration/project-specs/before-login/*.spec.js'"
+    "basePagesMainElementsBeforeLogin": "npx cypress run --spec 'cypress/integration/project-specs/before-login/*.spec.js'",
   },
   "repository": {
     "type": "git",
-    "url": "git+git remote add origin https://github.com/ILopatenko/asd.git"
+    "url": "https://github.com/ILopatenko/ui-automation-cypress-9.6.0.git"
   },
   "author": "",
   "license": "ISC",
-  "homepage": "http://git remote add origin https://github.com/ILopatenko/asd.git",
+  "homepage": "https://github.com/ILopatenko/ui-automation-cypress-9.6.0.git",
   "dependencies": {
     "cypress": "^9.6.0",
     "cypress-xpath": "^1.6.2"

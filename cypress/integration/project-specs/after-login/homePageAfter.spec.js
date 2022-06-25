@@ -112,7 +112,7 @@ describe('Home Page default (before log in) elements - main test suite', () => {
           });
         console.log(links2);
       });
-      it('Checking links at TOP MENU - block 2', () => {
+      it.skip('Checking links at TOP MENU - block 2', () => {
         parsed2.map((e, i) => {
           homePageAfterPOM.hamburgerMenuButton().click();
 
@@ -134,6 +134,80 @@ describe('Home Page default (before log in) elements - main test suite', () => {
           }
           cy.go('back');
         });
+      });
+    });
+    describe('RIGH SIDE ICONS', () => {
+      it('Checking that RIGH SIDE ICONS main DIV exists', () => {
+        homePageAfterPOM.topMenu().next('div');
+      });
+      it('Checking INFO icon', () => {
+        homePageAfterPOM
+          .topMenu()
+          .next('div')
+          .children('div')
+          .eq(0)
+          .children('a')
+          .should('have.attr', 'href', '/info')
+          .children('img')
+          .should('be.visible')
+          .should('have.attr', 'alt', 'Docs')
+          .click()
+          .location('pathname')
+          .should('eq', '/info');
+        cy.get('span[data-qa="page-title"]')
+          .should('be.visible')
+          .should('have.text', 'Information')
+          .go('back');
+      });
+      it('Checking SETTINGS icon', () => {
+        homePageAfterPOM
+          .settings()
+          .should('be.visible')
+          .should('have.attr', 'alt', 'Settings')
+          .click()
+          .location('pathname')
+          .should('eq', '/settings/companyAccount');
+        cy.get('h5')
+          .first()
+          .should('be.visible')
+          .should('have.text', 'Company Information')
+          .go('back');
+      });
+      it('Checking NOTIFICATION icon', () => {
+        homePageAfterPOM.notification().should('be.visible').click();
+        homePageAfterPOM.notificationCloseButton().click();
+      });
+      it('Checking USER PROFILE icon', () => {
+        homePageAfterPOM.userInfoButton().click();
+        homePageAfterPOM.userInfoMenu();
+        homePageAfterPOM
+          .profileOption()
+          .should('be.visible')
+          .click()
+          .location('pathname')
+          .should('contain', '/profile')
+          .go('back');
+
+        homePageAfterPOM.userInfoButton().click();
+        homePageAfterPOM.userInfoMenu();
+        homePageAfterPOM
+          .companyAccountOption()
+          .should('be.visible')
+          .click()
+          .location('pathname')
+          .should('contain', '/companyAccount')
+          .go('back');
+
+        homePageAfterPOM.userInfoButton().click();
+        homePageAfterPOM.userInfoMenu();
+        homePageAfterPOM
+          .logoutOption()
+          .should('be.visible')
+          .click()
+          .location('pathname')
+          .should('contain', '/');
+
+        cy.get('a[data-qa="login"]').should('be.visible');
       });
     });
   });

@@ -22,3 +22,5 @@ jobs:
       run: npm i
     - name: Stage 1. Testing Base Pages (Home, Pricing, Industries, Support, Login and Register) that user can use for exploring product and Registration/Login actions
       run: npm run basePagesMainElementsBeforeLogin
+    - name: Stage 2. Testing Pages that user use after Registration/Login
+      run: npm run pagesAfter

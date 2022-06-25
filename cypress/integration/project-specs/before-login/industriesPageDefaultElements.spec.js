@@ -1,6 +1,5 @@
 import IndustriesPageDefaultPOM from '../../../support/page-objects/before-login-poms/industriesPageDefaultPOM';
 import LocalHelper from '../../../support/page-objects/localHelper';
-import industries from '../../../support/page-objects/test-data/parse/before-login/industries';
 const industriesPageDefaultPOM = new IndustriesPageDefaultPOM();
 const localHelper = new LocalHelper();
 

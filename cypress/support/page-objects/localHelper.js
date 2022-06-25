@@ -177,6 +177,18 @@ export default class LocalHelper {
         'Delivery service',
       ],
     },
+    credentials: {
+      loginValid: {
+        karen: {
+          email: 'karen_BJP_$%&_462_young@aol.us',
+          password: 'mm$>SAH59',
+        },
+        sandra: {
+          email: 'sandra_*%$__2568_jackson@yahoo.net',
+          password: 'ddsn*.:VANF27',
+        },
+      },
+    },
   };
   //
   //

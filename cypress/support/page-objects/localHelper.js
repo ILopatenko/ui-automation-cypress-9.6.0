@@ -256,7 +256,20 @@ export default class LocalHelper {
 
     return email;
   };
-
+  generateRandomEmail = () => {
+    const firstName = this.getRandomElementFromGivenSetDefault1(
+      this.testData.registration.firstNames
+    );
+    const lastName = this.getRandomElementFromGivenSetDefault1(
+      this.testData.registration.lastNames
+    );
+    const email = this.generateEmailBasedOnFullName1(
+      firstName,
+      lastName,
+      3
+    );
+    return email;
+  };
   generateUserDataForRegistration = () => {
     const firstName = this.getRandomElementFromGivenSetDefault1(
       this.testData.registration.firstNames
@@ -291,4 +304,9 @@ export default class LocalHelper {
       companySize,
     };
   };
+
+  //
+  //
+
+  //
 }

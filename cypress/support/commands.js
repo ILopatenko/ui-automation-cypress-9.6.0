@@ -151,7 +151,6 @@ Cypress.Commands.add('checkNavBarAfterLogin', (endpoint) => {
     .should('have.text', 'Information')
     .go('back')
     .wait(200);
-
   homePageAfter
     .settings()
     .should('be.visible')
@@ -166,10 +165,8 @@ Cypress.Commands.add('checkNavBarAfterLogin', (endpoint) => {
     .should('have.text', 'Company Information')
     .go('back')
     .wait(200);
-
   homePageAfter.notification().should('be.visible').click();
   homePageAfter.notificationCloseButton().click();
-
   homePageAfter.userInfoButton().click();
   homePageAfter.userInfoMenu();
   homePageAfter
@@ -193,4 +190,79 @@ Cypress.Commands.add('checkNavBarAfterLogin', (endpoint) => {
   cy.logout();
   cy.login();
   cy.visit(endpoint);
+});
+
+Cypress.Commands.add('checkTextInputField', (selector) => {
+  cy.get(selector)
+    .type('abc123QAZ!@#')
+    .wait(300)
+    .should('have.value', 'abc123QAZ!@#')
+    .type(
+      '{backspace}{leftArrow}{leftArrow}{backspace}{leftArrow}{leftArrow}{backspace}{leftArrow}{leftArrow}{backspace}'
+    )
+    .wait(300)
+    .should('have.value', 'ab12QA!@')
+    .type('{selectAll}{del}')
+    .wait(300)
+    .should('have.value', '')
+    .type('+CHCKD_TxT+')
+    .wait(300)
+    .type('{esc}')
+    .should('have.value', '+CHCKD_TxT+');
+});
+
+Cypress.Commands.add('checkNumberInputField', (selector) => {
+  let numberSixDigits =
+    localHelper.getRandomElementFromGivenSetDefault1(
+      localHelper.testData.registration.numbers,
+      6
+    );
+  cy.get(selector)
+    .type('123456789')
+    .wait(300)
+    .should('have.value', '123456789')
+    .type(
+      '{backspace}{leftArrow}{backspace}{leftArrow}{backspace}{leftArrow}{backspace}{leftArrow}{backspace}'
+    )
+    .wait(300)
+    .should('have.value', '2468')
+    .type('{selectAll}{del}')
+    .wait(300)
+    .should('have.value', '')
+    .type(numberSixDigits)
+    .wait(300)
+    .type('{esc}')
+    .should('have.value', numberSixDigits);
+});
+
+Cypress.Commands.add('checkPhoneNumberUSInputField', (selector) => {
+  const numberToCheck =
+    localHelper.getRandomElementFromGivenSetDefault1(
+      localHelper.testData.registration.numbers,
+      10
+    );
+  const formatted = `+1 (${numberToCheck.slice(
+    0,
+    3
+  )}) ${numberToCheck.slice(3, 6)}-${numberToCheck.slice(6)}`;
+  cy.get(selector)
+    .type(numberToCheck)
+    .wait(300)
+    .should('have.value', formatted)
+    .type('{selectAll}{del}')
+    .wait(300)
+    .should('have.value', '+')
+    .type(`1${numberToCheck}`);
+});
+
+Cypress.Commands.add('checkEmailInputField', (selector) => {
+  const randomEmail = localHelper.generateRandomEmail();
+  cy.get(selector)
+    .type(randomEmail)
+    .wait(300)
+    .should('have.value', randomEmail)
+    .type('{selectAll}{del}')
+    .wait(300)
+    .should('have.value', '')
+    .type(randomEmail);
 });

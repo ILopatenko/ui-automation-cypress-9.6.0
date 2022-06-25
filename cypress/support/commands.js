@@ -42,7 +42,7 @@ Cypress.Commands.add(
     cy.visit('/user/login');
     loginPage.emailInput().type(loginCredentials.email);
     loginPage.passwordInput().type(loginCredentials.password);
-    loginPage.submitButton().click();
+    loginPage.submitButton().click().wait(500);
     homePageAfter.userInfoButton().should('be.visible');
   }
 );
@@ -192,4 +192,5 @@ Cypress.Commands.add('checkNavBarAfterLogin', (endpoint) => {
 
   cy.logout();
   cy.login();
+  cy.visit(endpoint);
 });

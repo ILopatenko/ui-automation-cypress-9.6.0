@@ -1,16 +1,12 @@
+import TopNavBarBeforeLoginPOM from '../../../support/page-objects/common-modules/topNavBarBeforeLoginPOM';
 import IndustriesPageDefaultPOM from '../../../support/page-objects/before-login-poms/industriesPageDefaultPOM';
-import LocalHelper from '../../../support/page-objects/localHelper';
-const industriesPageDefaultPOM = new IndustriesPageDefaultPOM();
-const localHelper = new LocalHelper();
 
-describe('Industries Page default (before log in) elements - main test suite', () => {
-  beforeEach('Load Industries Page', () => {
-    cy.visit('/i/industries');
-  });
-  describe('PRECONDITIONS: load industries Page', () => {
-    it('Checking main NAVBAR (with a local helper)', () => {
-      localHelper.checkNavbarDefault();
-    });
+const topMenu = new TopNavBarBeforeLoginPOM();
+const industriesPageDefaultPOM = new IndustriesPageDefaultPOM();
+
+describe('Industries Page (before login) Main Test Suite (main elements and content)', () => {
+  describe('Testing common Top Navigation Menu', () => {
+    topMenu.checkTopNavBarBeforeLogin('/i/industries');
   });
 
   describe('Main Page Elements (3): header, paragraph, table', () => {

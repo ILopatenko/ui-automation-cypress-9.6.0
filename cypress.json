@@ -1,5 +1,6 @@
 {
     "baseUrl":"http://kompot.us",
     "video":false,
-    "defaultCommandTimeout":7000
+    "defaultCommandTimeout":7000,
+    "ignoreTestFiles":["**/1-getting-started/*","**/2-advanced-examples/*"]
 }

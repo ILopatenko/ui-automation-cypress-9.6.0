@@ -1,18 +1,12 @@
+import TopNavBarBeforeLoginPOM from '../../../support/page-objects/common-modules/topNavBarBeforeLoginPOM';
 import HomePageDefaultPOM from '../../../support/page-objects/before-login-poms/homePageDefaultPOM';
-import LocalHelper from '../../../support/page-objects/localHelper';
 const homePageDefaultPOM = new HomePageDefaultPOM();
-const localHelper = new LocalHelper();
+const topMenu = new TopNavBarBeforeLoginPOM();
 
-describe('Home Page default (before log in) elements - main test suite', () => {
-  describe('PRECONDITIONS: load Home Page', () => {
-    it('Load Home Page', () => {
-      cy.visit('/');
-    });
-    it('Checking main NAVBAR (with a local helper)', () => {
-      localHelper.checkNavbarDefault();
-    });
+describe('Home Page (before login) Main Test Suite (main elements and content)', () => {
+  describe('Testing common Top Navigation Menu', () => {
+    topMenu.checkTopNavBarBeforeLogin('/');
   });
-
   describe('Main Page Blocks (5): "Perfect CRM solution", "Our Goal", "Why Kompot", "Kompot Features", "Pricing"!', () => {
     it('Checking that Home Page has 5 main blocks (DIVs)', () => {
       homePageDefaultPOM
@@ -142,9 +136,3 @@ describe('Home Page default (before log in) elements - main test suite', () => {
     });
   });
 });
-//TODO: CHECK LAST 3 LINKS TO REGISTER PAGE
-//CHECK ALL THE TEXT INSIDE SMALLEST DIVs
-/* describe('', () => {
-    it('', () => {});
-  });
-   */

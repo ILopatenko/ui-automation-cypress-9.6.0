@@ -1,17 +1,12 @@
+import TopNavBarBeforeLoginPOM from '../../../support/page-objects/common-modules/topNavBarBeforeLoginPOM';
 import SupportPageDefaultPOM from '../../../support/page-objects/before-login-poms/supportPageDefaultPOM';
-import LocalHelper from '../../../support/page-objects/localHelper';
 
+const topMenu = new TopNavBarBeforeLoginPOM();
 const supportPageDefaultPOM = new SupportPageDefaultPOM();
-const localHelper = new LocalHelper();
 
-describe('Support Page default (before log in) elements - main test suite', () => {
-  beforeEach('Load Support Page', () => {
-    cy.visit('/i/support');
-  });
-  describe('PRECONDITIONS: load Support Page', () => {
-    it('Checking main NAVBAR (with a local helper)', () => {
-      localHelper.checkNavbarDefault();
-    });
+describe('Support Page (before login) Main Test Suite (main elements and content)', () => {
+  describe('Testing common Top Navigation Menu', () => {
+    topMenu.checkTopNavBarBeforeLogin('/i/support');
   });
 
   describe('Main Page Elements (2): picture and form', () => {
@@ -76,26 +71,7 @@ describe('Support Page default (before log in) elements - main test suite', () =
           .topicLabel()
           .should('be.visible')
           .should('have.text', 'What can we help you with?');
-        //TO FIX - second drop down menu. Impossible to click at any option!
-        /*  supportPageDefaultPOM.topicDropMenu().click();
-        cy.get('div[role="listbox"]')
-          .eq(Math.floor(Math.random() * 3))
-          .children()
-          .eq(Math.floor(Math.random() * 3))
-          .click({ force: true }); */
-
-        /*   cy.get(
-          `div[title="${
-            userTypes[Math.floor(Math.random() * userTypes.length)]
-          }"]`
-        ); */
       });
     });
   });
 });
-//TODO:
-//CHECK ALL THE TEXT INSIDE SMALLEST DIVs
-/* describe('', () => {
-    it('', () => {});
-  });
-   */

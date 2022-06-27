@@ -4,6 +4,9 @@ const homePageDefaultPOM = new HomePageDefaultPOM();
 const topMenu = new TopNavBarBeforeLoginPOM();
 
 describe('Home Page (before login) Main Test Suite (main elements and content)', () => {
+  /*   beforeEach(() => {
+    Cypress.Cookies.preserveOnce('connect.sid', 'user_auth');
+  }); */
   describe('Testing common Top Navigation Menu', () => {
     topMenu.checkTopNavBarBeforeLogin('/');
   });

@@ -186,6 +186,8 @@ export default class LocalHelper {
         sandra: {
           email: 'sandra_*%$__2568_jackson@yahoo.net',
           password: 'ddsn*.:VANF27',
+          userID: '62b5363d8131198c5e81b408',
+          companyID: '62b536438131198c5e81b41e',
         },
       },
     },

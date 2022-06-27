@@ -42,7 +42,7 @@ Cypress.Commands.add(
     cy.visit('/user/login');
     loginPage.emailInput().type(loginCredentials.email);
     loginPage.passwordInput().type(loginCredentials.password);
-    loginPage.submitButton().click().wait(500);
+    loginPage.submitButton().click().wait(1000);
     homePageAfter.userInfoButton().should('be.visible');
   }
 );

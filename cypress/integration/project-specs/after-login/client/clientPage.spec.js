@@ -1,17 +1,16 @@
 import LocalHelper from '../../../../support/page-objects/localHelper';
 import ClientPageAfterPOM from '../../../../support/page-objects/after-login/client/clientPageAfterPOM';
+import TopNavBarHelper from '../../../../support/page-objects/common-modules/topNavBarHelper';
+
+const topMenu = new TopNavBarHelper();
 const localHelper = new LocalHelper();
 const clientPageAfter = new ClientPageAfterPOM();
 
 describe('Client Page - main elements', () => {
-  describe('PRECONDITIONS: login and load Client Page', () => {
-    it('LOGIN', () => {
-      cy.login().wait(300).visit('/client');
-    });
-    it('Loading Client Page and checking TopNavBarMenu', () => {
-      cy.checkNavBarAfterLogin('/client');
-    });
+  beforeEach(() => {
+    Cypress.Cookies.preserveOnce('connect.sid', 'user_auth');
   });
+  topMenu.checkTopMenu('/client');
   describe('Checking main page elements and their BASE FUNCTIONALITY', () => {
     describe('Checking page title', () => {
       it('Checking that page title has text "Clients"', () => {

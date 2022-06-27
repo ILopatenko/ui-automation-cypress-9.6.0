@@ -9,7 +9,10 @@
     "basePagesMainElementsBeforeLogin": "npx cypress run --spec 'cypress/integration/project-specs/before-login/*.spec.js'",
     "mainPageAfter":"npx cypress run --spec 'cypress/integration/project-specs/after-login/homePageAfter.spec.js'",
     "clientPage":"npx cypress run --spec 'cypress/integration/project-specs/after-login/client/clientPage.spec.js'",
-    "pagesAfter":"npm run mainPageAfter && npm run clientPage"
+    "clientModal":"npx cypress run --spec 'cypress/integration/project-specs/after-login/client/clientModalPage.spec.js'",
+    "pagesAfter":"npm run mainPageAfter && npm run clientPage",
+    "client":"npm run clientPage && npm run clientModal"
+
   },
   "repository": {
     "type": "git",

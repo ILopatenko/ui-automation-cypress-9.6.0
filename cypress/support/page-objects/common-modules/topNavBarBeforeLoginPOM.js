@@ -38,7 +38,7 @@ export default class TopNavBarBeforeLoginPOM {
   //TESTS
   //
   checkTopNavBarBeforeLogin = (endpoint) => {
-    describe('Checking TopNavBar Main Test Suite', () => {
+    describe('Checking TopNavBar (at default pages - before Log in) Main Test Suite', () => {
       it(`PRECONDITIONS: load the page "${endpoint}`, () => {
         cy.visit(endpoint).wait(300);
       });

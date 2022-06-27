@@ -1,17 +1,8 @@
 import HomePageAfterPOM from '../../../support/page-objects/after-login/homePageAfterPOM';
-import LocalHelper from '../../../support/page-objects/localHelper';
+import TopNavBarHelper from '../../../support/page-objects/common-modules/topNavBarHelper';
+const topMenu = new TopNavBarHelper();
 const homePageAfterPOM = new HomePageAfterPOM();
-const localHelper = new LocalHelper();
 
-describe('Home Page default (before log in) elements - main test suite', () => {
-  describe('PRECONDITIONS: Login', () => {
-    it('Login', () => {
-      cy.login();
-    });
-  });
-  describe('Home Page main elements', () => {
-    it('Checking NAVBAR', () => {
-      cy.checkNavBarAfterLogin('/');
-    });
-  });
+describe('Home Page main elements - main test suite', () => {
+  topMenu.checkTopMenu('/');
 });
